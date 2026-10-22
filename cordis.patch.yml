@@ -1,0 +1,9 @@
+# dsh-session-admin — the bundle's patch layer.
+#
+# One row: the host half. The client half needs no row of its own — the module
+# scanner finds it through this package's `dsh.client` declaration in
+# package.json and serves it as part of the same plugin. That half renders the
+# management panel in the centre column and as a Settings page.
+- insert:
+    - id: session-admin
+      name: dsh-session-admin

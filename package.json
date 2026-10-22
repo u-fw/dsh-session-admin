@@ -1,0 +1,63 @@
+{
+  "name": "dsh-session-admin",
+  "version": "0.1.0",
+  "description": "Audit and manage DeepSeek Harness session storage: real on-disk sizes, archived delegation subtrees, and reclaimable attachment blobs",
+  "type": "module",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "test:in-process": "node --test --test-isolation=none test/*.test.mjs",
+    "audit": "node tools/audit.mjs"
+  },
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "test",
+    "tools",
+    "cordis.patch.yml",
+    "README.md",
+    "README.zh.md",
+    "CONTRIBUTING.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "dsh-bundle",
+    "session-management",
+    "session-cleanup",
+    "storage-audit",
+    "attachments",
+    "trash"
+  ],
+  "homepage": "https://github.com/u-fw/dsh-session-admin#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/u-fw/dsh-session-admin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/u-fw/dsh-session-admin/issues"
+  },
+  "author": "u-fw",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.15"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-renderer"
+      ]
+    }
+  }
+}
